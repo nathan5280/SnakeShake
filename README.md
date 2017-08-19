@@ -17,6 +17,9 @@ The implementation consists of 3 main parts:
 
   These servers are build with [Pyro](https://pythonhosted.org/Pyro4/).
 3. Client: The client class which remotely connects to the Env through the Server to drive actions in Blender.
+<p align="center">
+<img height="400" src="https://user-images.githubusercontent.com/28061825/29490471-b95908fe-84fa-11e7-89b1-2d0986dc42bb.jpg">
+</p>
 
 ## Setup & Try it Out
 1. Install Blender
