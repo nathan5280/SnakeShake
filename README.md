@@ -1,15 +1,21 @@
 # SnakeShake
-Blender and Python remote integration to enable simulations of environments for Supervised and Reinforcement Learning.
+Blender and Python remote integration to enable simulation environments for Supervised and Reinforcement Learning.
 
 ## Motivation
-As I kick off a number of Supervised and Reinforcement Learning projects for robotics projects it was immediately obvious that I need a way to simulate the environment to enable training in reasonable time frames.  I had some prior experience with [Blender](https://www.blender.org/), Python and distributed systems integration.   This project brings all of those skills together in a fun way.
+As I kicked off a number of Supervised and Reinforcement Learning projects for robotics it was immediately obvious that I needed a way to simulate the environment.  Starting by training real robots in real environments was going to be orders of magnitude too slow.  Having some prior experience with [Blender](https://www.blender.org/), Python and distributed systems integration I thought this would be a good project to bring them all together.
 
-Blender has fantastic Python integration that allows you to control or modify just about everything in the environment.  Through this simple example we can remotely move the camera around in the environment and render what it sees.  In my case this is the simulation of what a robot would see as it moves around in the environment.  I'm starting with simple objects and lighting to get started, but feel that I can leverage the power of Blender to render more and more elaborate environments as my algorithms improve.
+Blender has fantastic Python integration that allows you to control or modify just about everything in the environment.  The ability to create and simulate an environment is only limited by your imagination and time.  For my robotics environment all I need to do is move the camera around as if the robot was driving through the environment.  In the end it all looks pretty boring, but gets the job done.  I'm starting with simple objects and lighting to get started, but feel that I can leverage the power of Blender to render more and more elaborate environments as my algorithms improve.
 
 ## Implementation
 The implementation consists of 3 main parts:
-1. Env: The simulation environment. This class implements whatever is needed to create object in Blender.  It also exposes methods for the client to control actions in the environment.   This class is the key interface to the Blender API.  
-2. Server: There are two versions of the Server.  One that runs inside of Blender when it has it's UI and one for when Blender is running in a background mode.  The main differences in these classes is how the foreground version integrates with Blender to keep the UI event loop alive and responsive.  These servers are build with [Pyro](https://pythonhosted.org/Pyro4/).
+1. Env: The simulation environment. This class implements whatever is needed to create and position objects in Blender.  It also exposes methods for the client to control actions in the environment.   This class is the key interface to the Blender API.  
+2. Server: There are two versions of the Server.  
+    a. Foreground for when the UI is available for you to interact with it.  
+    b. Background mode when Blender is run headless for rendering only.
+
+  The main differences in these classes is how the foreground version integrates with Blender to keep the UI event loop alive and responsive.  
+
+  These servers are build with [Pyro](https://pythonhosted.org/Pyro4/).
 3. Client: The client class which remotely connects to the Env through the Server to drive actions in Blender.
 
 ## Setup & Try it Out
@@ -20,6 +26,8 @@ The implementation consists of 3 main parts:
   ```
   python -m Pyro4.naming
   ```
+
+  With Pyro4 we should be able to split the machines where the Blender simulated environment and the client are running.
 
 4. Start the Server.  Note that you will need to figure out where on your computer you need to copy Env.py to for the Server to load it.
 
