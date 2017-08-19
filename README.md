@@ -53,6 +53,8 @@ The implementation consists of 3 main parts:
 The only changes you should need to make are in the Env and Client classes.  In the end the Pyro remoting hides the complexities of the RPC and it feels like you are just writing two classes that interact through normal method calls.  The only exception to this is if you are passing objects that are not serializable by the serializers in Pyro.  Because my implementation is relatively simple, I haven't included anything about customizing the serializers.  There is information on how to customize the serializers for your custom classes out there, but it was a bit hard to find.
 
 ## Technology Stack
-![blender](https://user-images.githubusercontent.com/28061825/29490208-27bb242a-84f2-11e7-98bd-83818d251dc7.png)
-![pyro](https://user-images.githubusercontent.com/28061825/29490207-27baf5d6-84f2-11e7-8ac4-7eb758aa12b8.png)
-![python](https://user-images.githubusercontent.com/28061825/29490209-27bd4976-84f2-11e7-9d19-86b46f8e8c10.png)
+<p align="center">
+  <img height="75" src="https://user-images.githubusercontent.com/28061825/29490208-27bb242a-84f2-11e7-98bd-83818d251dc7.png">
+  <img height="75" src="https://user-images.githubusercontent.com/28061825/29490207-27baf5d6-84f2-11e7-8ac4-7eb758aa12b8.png">
+  <img height="75" src="https://user-images.githubusercontent.com/28061825/29490209-27bd4976-84f2-11e7-9d19-86b46f8e8c10.png">
+</p>
