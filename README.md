@@ -17,7 +17,9 @@ The implementation consists of 3 main parts:
 2. Install Pyro4
 3. Start the name server to allow the client to find the running server without having to keep IP addresses and Port information in configuration files.
 
-  ```python -m Pyro4.naming```
+  ```
+  python -m Pyro4.naming
+  ```
 
 4. Start the Server.  Note that you will need to figure out where on your computer you need to copy Env.py to for the Server to load it.
 
@@ -28,7 +30,8 @@ The implementation consists of 3 main parts:
   cp src/Arena.py /Applications/blender.app/Contents/Resources/2.78/python/lib/python3.5/site-packages/snakeshake
 
   # Start blender with the UI and load the SnakeShake foreground server.s
-  /Applications/blender.app/Contents/MacOS/blender -P src/SnakeShakeFGServer.py```
+  /Applications/blender.app/Contents/MacOS/blender -P src/SnakeShakeFGServer.py
+  ```
 
   **SnakeShakeBGServer.bash**
 
@@ -39,11 +42,14 @@ The implementation consists of 3 main parts:
   # Start blender in the background (-b) and run the background SnakeShakeServer code on startup.
   /Applications/blender.app/Contents/MacOS/blender -b -P src/SnakeShakeBGServer.py
   ```
+
 5. Start the Client.  In this case I have a simple 'Driver' client that allows you to move the camera around using the arrow keys.  Shift arrow will double the size of the moves.
 
-  ```python DriverClient.py```
+  ```
+  python DriverClient.py
+  ```
 
-## What you need to do to extend SnakeShake for your project.
+## Extend SnakeShake for your project.
 The only changes you should need to make are in the Env and Client classes.  In the end the Pyro remoting hides the complexities of the RPC and it feels like you are just writing two classes that interact through normal method calls.  The only exception to this is if you are passing objects that are not serializable by the serializers in Pyro.  Because my implementation is relatively simple, I haven't included anything about customizing the serializers.  There is information on how to customize the serializers for your custom classes out there, but it was a bit hard to find.
 
 ## Technology Stack
