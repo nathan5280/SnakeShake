@@ -97,6 +97,30 @@ class Env(object):
 
         return cam_p.x, cam_p.y, cam_r.z
 
+    def get_render_resolution(self):
+        '''
+        Get the current render resolution settings.
+
+        Input:
+
+        Output:
+            - x resolution
+            - y resolution
+        '''
+        return bpy.data.scenes["Scene"].render.resolution_x, \
+                bpy.data.scenes["Scene"].render.resolution_y
+
+    def set_render_resolution(self, new_x_resolution, new_y_resolution):
+        '''
+        Set the render resolution
+
+        Input:
+            - new_x_resolution:
+            - new_y_resolution:
+        '''
+        bpy.data.scenes["Scene"].render.resolution_x = new_x_resolution
+        bpy.data.scenes["Scene"].render.resolution_y = new_y_resolution
+
     def quit(self):
         '''
         Request to shutdown the Env.
