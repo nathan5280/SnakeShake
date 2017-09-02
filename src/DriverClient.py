@@ -104,6 +104,8 @@ def main(stdscr):
     while not quit:
         c = stdscr.getch()
         if c == ord('q'):
+            # Request that Snake Shake shutdown and stop the Blender environment.
+            env.quit()
             break;
 
         elif c == ord('Q'):
