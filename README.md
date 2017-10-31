@@ -23,7 +23,7 @@ The implementation consists of 3 main parts:
 
 ## Setup & Try it Out
 1. Install Blender
-2. Install Pyro4
+2. Install Pyro4 (Copy Pyro4 to site-packages in blender)
 3. Start the name server to allow the client to find the running server without having to keep IP addresses and Port information in configuration files.
 
   ```
